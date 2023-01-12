@@ -10,3 +10,5 @@ C:\Users\tabma\source\repos\Project\DAL\obj\Debug\net6.0\DAL.dll
 C:\Users\tabma\source\repos\Project\DAL\obj\Debug\net6.0\refint\DAL.dll
 C:\Users\tabma\source\repos\Project\DAL\obj\Debug\net6.0\DAL.pdb
 C:\Users\tabma\source\repos\Project\DAL\obj\Debug\net6.0\ref\DAL.dll
+C:\Users\tabma\source\repos\Project\DAL\bin\Debug\net6.0\DAL.runtimeconfig.json
+C:\Users\tabma\source\repos\Project\DAL\obj\Debug\net6.0\DAL.genruntimeconfig.cache

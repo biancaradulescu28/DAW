@@ -1,13 +1,10 @@
 ﻿
-
 using DAL.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Reflection.Emit;
 
 namespace DAL.Data
 {
-    public class ProjectContext : DbContext
+    public class ProiectContext : DbContext
     {
         public DbSet<Event> Events { get; set; }
         public DbSet<Address> Addresses { get; set; }
@@ -17,7 +14,7 @@ namespace DAL.Data
         public DbSet<Cart> Carts { get; set; }
         public DbSet<TicketDiscount> TicketDiscounts { get; set; }
 
-        public ProjectContext(DbContextOptions<ProjectContext> options) : base(options)
+        public ProiectContext(DbContextOptions<ProiectContext> options) : base(options)
         {
         }
 
@@ -60,7 +57,8 @@ namespace DAL.Data
 
             modelBuilder.Entity<User>()
                 .HasOne(u => u.Cart)
-                .WithOne(c => c.User);
+                .WithOne(c => c.User)
+                .HasForeignKey<Cart>(c => c.UserId);
 
             base.OnModelCreating(modelBuilder);
         }
