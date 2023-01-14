@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "cZ1us/ictaZ5EOi7+rHLlJz9/QAwvGGURcK16Qe50bq22F21AYwN15Czm0bkDCLifjsjeb4yfBXzcrOl+FUMUg==",
+  "dgSpecHash": "5QUhOhcYGkYlsmQjRpeVjsedZ3c+a31QW7O2k+SJux7WMdpzSCwTiz51POmWpm9Xc98sekthNZzlEVbocbVrZg==",
   "success": true,
   "projectFilePath": "C:\\Users\\tabma\\source\\repos\\Project\\DAL\\DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tabma\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\tabma\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\tabma\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\tabma\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\tabma\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\tabma\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

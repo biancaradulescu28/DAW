@@ -1,6 +1,7 @@
 ﻿
 
 using DAL.Models.Base;
+using DAL.Models.Enums;
 using System.Data;
 using System.Text.Json.Serialization;
 
@@ -11,15 +12,17 @@ namespace DAL.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
+        public int Age { get; set; }
+
         public string Email { get; set; }
         public string Username { get; set; }
 
         public ICollection<Order> Orders { get; set; }
         public Cart Cart { get; set; }
 
-        //[JsonIgnore]//nu o sa ia in calcul si passwordHash
-        //public string PasswordHash { get; set; }
+        [JsonIgnore]//nu o sa ia in calcul si passwordHash
+        public string PasswordHash { get; set; }
 
-        //public Role Role { get; set; }
+        public Role Role { get; set; }
     }
 }

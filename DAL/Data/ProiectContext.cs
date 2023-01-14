@@ -13,9 +13,11 @@ namespace DAL.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<TicketDiscount> TicketDiscounts { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public ProiectContext(DbContextOptions<ProiectContext> options) : base(options)
         {
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
