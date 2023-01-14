@@ -10,6 +10,8 @@ namespace DAL.Repositories.EventRepository
 {
     public interface IEventRepository : IGenericRepository<Event>
     {
-
+        List<Event> GetAllWithInclude();
+        //List<Event> GetAllWithJoin();
     }
+   
 }

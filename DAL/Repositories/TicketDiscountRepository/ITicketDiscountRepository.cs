@@ -5,7 +5,7 @@ using DAL.Repositories.GenericRepository;
 
 namespace DAL.Repositories.TicketDiscountRepository
 {
-    internal interface ITicketDiscountRepository : IGenericRepository<TicketDiscount>
+    public interface ITicketDiscountRepository : IGenericRepository<TicketDiscount>
     {
     }
 }
