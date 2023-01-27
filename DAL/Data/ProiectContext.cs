@@ -57,7 +57,7 @@ namespace DAL.Data
                 .HasMany(u => u.Orders)
                 .WithOne(o => o.User);
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<User>()//mai bine descriere
                 .HasOne(u => u.Cart)
                 .WithOne(c => c.User)
                 .HasForeignKey<Cart>(c => c.UserId);

@@ -12,6 +12,7 @@ namespace DAL.Repositories.EventRepository
     {
         List<Event> GetAllWithInclude();
         //List<Event> GetAllWithJoin();
+        Event GetByEventName(string eventName);
     }
    
 }

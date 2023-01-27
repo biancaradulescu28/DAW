@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Repositories.EventRepository
 {
-    public class EventRepository : GenericRepository.GenericRepository<Event>, IEventRepository
+    public class EventRepository : GenericRepository<Event>, IEventRepository
     {
         public EventRepository(ProiectContext context) : base(context)
         {
@@ -24,5 +24,10 @@ namespace DAL.Repositories.EventRepository
         //        => new {e,a}).Select(obj => obj.e);
         //    return result.ToList();
         //}
+
+        public Event GetByEventName(string eventName)
+        {
+            return _table.FirstOrDefault(x => x.EventName.ToLower().Equals(eventName.ToLower()));
+        }
     }
 }

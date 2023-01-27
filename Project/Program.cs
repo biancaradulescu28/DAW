@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Project.Helper;
 using Project.Helper.Extensions;
 using Project.Helper.Middleware;
+using Project.Helper.Seeders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,7 @@ builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSet
 
 builder.Services.AddRepositories();
 builder.Services.AddServices();
+builder.Services.AddSeeders();
 
 var app = builder.Build();
 
@@ -41,6 +43,16 @@ app.MapFallbackToFile("index.html");
 app.UseMiddleware<JwtMiddleware>();
 
 app.Run();
+
+void SeedData(IHost app)
+{
+    var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+    using (var scope = scopedFactory.CreateScope())
+    {
+        var service = scope.ServiceProvider.GetService<EventSeeder>();
+        service.SeedInitialEvents();
+    }
+}
 
 //Package Manager Console: Add-Migration InitDatabase //asa fac migrari
 //apoi Update-Database
