@@ -8,14 +8,16 @@ using DAL.Repositories.TicketRepository;
 using DAL.Repositories.UserRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Project.Helper.JwtUtils;
 using Project.Helper.Seeders;
 using Project.Services.EventService;
 using Project.Services.UserService;
 
 namespace Project.Helper.Extensions
-{
+{/*
     [Route("api/[controller]")]
     [ApiController]
+    */
     public static class ServiceExtension
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services)
@@ -42,6 +44,13 @@ namespace Project.Helper.Extensions
         public static IServiceCollection AddSeeders(this IServiceCollection services)
         {
             services.AddScoped<EventSeeder>();
+            return services;
+        }
+
+        public static IServiceCollection AddUtils(this IServiceCollection services)
+        {
+            services.AddScoped<IJwtUtils, JwtUtils.JwtUtils>();
+
             return services;
         }
     }

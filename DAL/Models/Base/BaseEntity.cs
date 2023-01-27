@@ -13,9 +13,9 @@ namespace DAL.Models.Base
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public DateTime DateCreated { get; set; }
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+
+        public DateTime? DateCreated { get; set; }
+
         public DateTime? DateModified { get; set; }
     }
 }

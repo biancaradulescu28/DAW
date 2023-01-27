@@ -1,5 +1,7 @@
-﻿using DAL.Models;
+﻿using AutoMapper;
+using DAL.Models;
 using DAL.Models.DTOs;
+using DAL.Models.Enums;
 using DAL.Repositories.UserRepository;
 using Project.Helper.JwtUtils;
 using BCryptNet = BCrypt.Net.BCrypt;
@@ -9,12 +11,15 @@ namespace Project.Services.UserService
     public class UserService : IUserService
     {
         public IUserRepository _userRepository;
-        private IJwtUtils _jwtUtils;
+        public IJwtUtils _jwtUtils;
+        public IMapper _mapper;
 
-        public UserService(IUserRepository userRepository, IJwtUtils jwtUtils)
+        public UserService(IUserRepository userRepository, IJwtUtils jwtUtils, IMapper mapper)
         {
             _userRepository = userRepository;
             _jwtUtils = jwtUtils;
+            _mapper = mapper;
+
         }
 
         public UserResponseDTO Atuhentificate(UserRequestDTO model)

@@ -5,26 +5,25 @@ namespace Project.Helper.Middleware
 {
     public class JwtMiddleware
     {
-        private readonly RequestDelegate _nextRequestDelegate;
+        private readonly RequestDelegate _next;
 
-        //constructor; pointer catre urm middleware
-        public JwtMiddleware(RequestDelegate requestDelegate)
+        public JwtMiddleware(RequestDelegate next)
         {
-            _nextRequestDelegate = requestDelegate;
+            _next = next;
         }
 
         public async Task Invoke(HttpContext httpContext, IUserService userService, IJwtUtils jwtUtils)
         {
-            var token = httpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split("").Last();
+            var token = httpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
             var userId = jwtUtils.ValidateJwtToken(token);
-
             if (userId != Guid.Empty)
             {
                 httpContext.Items["User"] = userService.GetById(userId);
+
             }
 
-            await _nextRequestDelegate(httpContext);
+            await _next(httpContext);
         }
     }
 }

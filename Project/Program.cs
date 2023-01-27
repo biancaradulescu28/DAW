@@ -14,13 +14,16 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ProiectContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
-
 builder.Services.AddRepositories();
 builder.Services.AddServices();
 builder.Services.AddSeeders();
+builder.Services.AddUtils();
+
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
+SeedData(app);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -30,6 +33,10 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthorization();
+app.UseMiddleware<JwtMiddleware>();
+
 app.UseStaticFiles();
 app.UseRouting();
 
@@ -39,8 +46,6 @@ app.MapControllerRoute(
     pattern: "{controller}/{action=Index}/{id?}");
 
 app.MapFallbackToFile("index.html");
-
-app.UseMiddleware<JwtMiddleware>();
 
 app.Run();
 
